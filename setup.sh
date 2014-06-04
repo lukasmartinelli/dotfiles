@@ -4,7 +4,9 @@ CWD=$(pwd)
 #Setup Vim with Vundle
 mkdir -p .vim/bundle
 ln -sv $CWD/.vim $HOME
-git clone https://github.com/gmarik/vundle.git .vim/bundle/vundle
+if ! [ -d .vim/bundle/Vundle.vim ]; then
+	git clone git@github.com:gmarik/Vundle.vim.git .vim/bundle/Vundle.vim
+fi
 vim +BundleInstall +qall
 
 #Vim config

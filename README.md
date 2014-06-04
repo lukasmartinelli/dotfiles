@@ -1,7 +1,7 @@
 Personal configuration of Vim, Tmux and Zsh.
 
 ## Setup
-	git clone --recursive git@github.com:lukasmartinelli/dotfiles.git ~/.dotfiles
+	git clone git@github.com:lukasmartinelli/dotfiles.git ~/.dotfiles
 
 ## Install
 	./setup.sh
