@@ -3,23 +3,23 @@ set nocompatible
 
 " Vundle Plugins
 filetype off 
-set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'Lokaltog/powerline'
+Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'edkolev/tmuxline.vim'
 
-call vundle#end() 
+call vundle#end()
 filetype plugin indent on 
 
 " Appearance
-set background=dark
+set background=light
 set title
 syntax on
-colorscheme jellybeans
+colorscheme solarized
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
@@ -65,8 +65,8 @@ set foldmethod=indent
 set foldlevel=99
 
 " Status line
-set ls=2
 set laststatus=2
+let g:airline_powerline_fonts = 1
 
 " Searching
 set ignorecase

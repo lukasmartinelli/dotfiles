@@ -1,11 +1,16 @@
 #!/bin/sh
+CWD=$(pwd)
 
 #Setup Vim with Vundle
-ln -s ~/.dotfiles/.vim ~
-ln -s ~/.dotfiles/.vimrc ~
-mkdir -p ~/.vim/bundle
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+mkdir -p .vim/bundle
+ln -sv $CWD/.vim $HOME
+ln -sv $CWD/.vimrc $HOME
+
+git clone https://github.com/gmarik/vundle.git .vim/bundle/vundle
 vim +BundleInstall +qall
 
-#Bash config
-ln -s ~/.dotfiles/.bashrc ~
+#Zsh config
+ln -sv $CWD/.zshrc $HOME
+
+#Tmux config
+ln -sv $CWD/.tmux.conf $HOME
