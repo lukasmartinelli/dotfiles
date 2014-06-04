@@ -12,6 +12,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'klen/python-mode'
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 filetype plugin indent on 
@@ -21,6 +23,9 @@ set background=light
 set title
 syntax on
 colorscheme solarized
+
+" Normal copy behaviour
+set clipboard=unnamed
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
@@ -40,6 +45,15 @@ nmap s <Plug>(easymotion-s2)
 " Easymotion better coloring of cursor
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
+
+" Easier split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Ignore filetypes
+set wildignore+=*.pyc,*.swp,*.egg
 
 " Text
 set number
