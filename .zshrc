@@ -4,10 +4,11 @@ ZSH_THEME="eastwood"           # Cool themes: agnoster, eastwood, gallois
 DISABLE_AUTO_UPDATE="true"
 DEFAULT_USER="morgenkaffee"    # Default user is hidden in prompt
 
-plugins=(git)
+plugins=(archlinux git pip virtualenvwrapper python vagrant web-search vi-mode)
 
 ### Customize prompt ###
 source $ZSH/oh-my-zsh.sh          # Use awesome OMZ framework 
+eval `dircolors .guake/dircolors-solarized/dircolors.ansi-light`
 
 ### Environment ###
 export TERM='xterm-256color'
