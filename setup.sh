@@ -2,7 +2,6 @@
 CWD=$(pwd)
 
 #Setup Vim with Vundle
-mkdir -p .vim/bundle
 ln -sv $CWD/.vim $HOME
 vim +BundleInstall +qall
 
@@ -19,5 +18,5 @@ ln -sv $CWD/.tmux.conf $HOME
 ./.guake/guake-colors-solarized/set_light.sh
 
 #Setup dircolors theme
-eval `dircolors .guake/dircolors-solarized/dircolors.ansi-light
+eval `dircolors .guake/dircolors-solarized/dircolors.ansi-light`
 
