@@ -1,0 +1,9 @@
+[submodule ".guake/dircolors-solarized"]
+	path = .guake/dircolors-solarized
+	url = https://github.com/huyz/dircolors-solarized
+[submodule ".guake/guake-colors-solarized"]
+	path = .guake/guake-colors-solarized
+	url = https://github.com/coolwanglu/guake-colors-solarized.git
+[submodule ".vim/bundle/Vundle.vim"]
+	path = .vim/bundle/Vundle.vim
+	url = https://github.com/gmarik/Vundle.vim.git
