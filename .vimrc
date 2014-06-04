@@ -11,6 +11,7 @@ Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'Lokaltog/vim-easymotion'
 
 call vundle#end()
 filetype plugin indent on 
@@ -33,8 +34,12 @@ map <C-a> GVgg				" select all
 map <C-n> :enew				" open new tab
 map <C-t> :tabnew <Enter>
 
-" Syntax highlighting
+" Easymotion 2-character search notion
+nmap s <Plug>(easymotion-s2)
 
+" Easymotion better coloring of cursor
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment
 
 " Text
 set number
@@ -70,4 +75,5 @@ let g:airline_powerline_fonts = 1
 
 " Searching
 set ignorecase
+
 
