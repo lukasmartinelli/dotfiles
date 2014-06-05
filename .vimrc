@@ -14,6 +14,7 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'klen/python-mode'
 Plugin 'scrooloose/nerdtree'
+Plugin 'sjl/gundo.vim'
 
 call vundle#end()
 filetype plugin indent on 

@@ -3,8 +3,10 @@ ZSH=/usr/share/oh-my-zsh/
 ZSH_THEME="eastwood"           # Cool themes: agnoster, eastwood, gallois
 DISABLE_AUTO_UPDATE="true"
 DEFAULT_USER="morgenkaffee"    # Default user is hidden in prompt
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_FIXTERM=false
 
-plugins=(archlinux git pip virtualenvwrapper python vagrant web-search vi-mode)
+plugins=(archlinux git pip virtualenvwrapper python vagrant web-search vi-mode tmux)
 
 ### Customize prompt ###
 source $ZSH/oh-my-zsh.sh          # Use awesome OMZ framework 
