@@ -15,6 +15,10 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'klen/python-mode'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
+Plugin 'alfredodeza/pytest.vim'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'tpope/vim-surround'
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()
 filetype plugin indent on 
@@ -48,10 +52,10 @@ hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
 
 " Easier split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
 
 " Ignore filetypes
 set wildignore+=*.pyc,*.swp,*.egg
@@ -60,10 +64,6 @@ set wildignore+=*.pyc,*.swp,*.egg
 set number
 set wrap					" wrap text
 set linebreak				" don't wrap text in the middle of a word
-
-" Faster up/down movement
-map <C-j> 10j
-map <C-k> 10k
 
 " Jump to the last position when reopening a file
 if has("autocmd")
@@ -77,12 +77,21 @@ set smartindent				" use smart indent if there is no indent file
 set tabstop=4				" <tab> inserts 4 spaces 
 set softtabstop=4			" <BS> over an autoindent deletes all spaces.
 
+" Gundo keybinding
+nnoremap <F5> :GundoToggle<CR>
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
 " Reading and Writing
 set autowriteall
 
 " Folding
 set foldmethod=indent
 set foldlevel=99
+
+" Keep buffers hidden instead of closing them
+set hidden
 
 " Status line
 set laststatus=2
