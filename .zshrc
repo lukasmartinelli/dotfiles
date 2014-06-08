@@ -6,7 +6,7 @@ DEFAULT_USER="morgenkaffee"    # Default user is hidden in prompt
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_FIXTERM=false
 
-plugins=(archlinux git pip virtualenvwrapper python vagrant web-search vi-mode tmux)
+plugins=(archlinux git pip virtualenvwrapper python vagrant web-search vi-mode )
 
 ### Customize prompt ###
 source $ZSH/oh-my-zsh.sh          # Use awesome OMZ framework 

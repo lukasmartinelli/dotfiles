@@ -6,19 +6,28 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" IDE features
 Plugin 'gmarik/Vundle.vim'
-Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
+Plugin 'sjl/gundo.vim'
+
+" Visuals
+Plugin 'bling/vim-airline'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'klen/python-mode'
-Plugin 'scrooloose/nerdtree'
-Plugin 'sjl/gundo.vim'
-Plugin 'alfredodeza/pytest.vim'
-Plugin 'jmcantrell/vim-virtualenv'
+
+" Editing
 Plugin 'tpope/vim-surround'
-Plugin 'terryma/vim-multiple-cursors'
+
+" Navigation
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'Lokaltog/vim-easymotion'
+
+" Python
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'nvie/vim-flake8'
+Plugin 'alfredodeza/pytest.vim'
+Plugin 'davidhalter/jedi-vim'
 
 call vundle#end()
 filetype plugin indent on 
@@ -57,6 +66,9 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
+" Allow jumping to definitions in python
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 " Ignore filetypes
 set wildignore+=*.pyc,*.swp,*.egg
 
@@ -74,8 +86,9 @@ endif
 " Indent
 set autoindent				" always set autoindenting on
 set smartindent				" use smart indent if there is no indent file
-set tabstop=4				" <tab> inserts 4 spaces 
-set softtabstop=4			" <BS> over an autoindent deletes all spaces.
+
+" Default tab configuration
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " Gundo keybinding
 nnoremap <F5> :GundoToggle<CR>
