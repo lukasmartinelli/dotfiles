@@ -2,7 +2,7 @@ set term=xterm-256color
 set nocompatible
 
 " Vundle Plugins
-filetype off 
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -30,7 +30,7 @@ Plugin 'alfredodeza/pytest.vim'
 Plugin 'davidhalter/jedi-vim'
 
 call vundle#end()
-filetype plugin indent on 
+filetype plugin indent on
 
 " Appearance
 set background=light
@@ -48,7 +48,7 @@ autocmd! bufwritepost .vimrc source %
 set mouse=a
 set bs=2
 
-" Enable standard short-cut keys 
+" Enable standard short-cut keys
 map <C-a> GVgg				" select all
 map <C-n> :enew				" open new tab
 map <C-t> :tabnew <Enter>
@@ -98,6 +98,11 @@ set backspace=indent,eol,start
 
 " Reading and Writing
 set autowriteall
+
+" Show trailing whitespace and spaces before a tab:
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$/
+:match ExtraWhitespace /\s\+$\| \+\ze\t/
 
 " Folding
 set foldmethod=indent
