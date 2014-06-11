@@ -1,5 +1,5 @@
 ### Oh my zsh ###
-ZSH=/usr/share/oh-my-zsh/
+ZSH=$HOME/.oh-my-zsh/
 ZSH_THEME="eastwood"           # Cool themes: agnoster, eastwood, gallois
 DISABLE_AUTO_UPDATE="true"
 DEFAULT_USER="morgenkaffee"    # Default user is hidden in prompt
