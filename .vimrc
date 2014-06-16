@@ -10,6 +10,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 " Visuals
 Plugin 'bling/vim-airline'
@@ -27,7 +28,9 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'nvie/vim-flake8'
 Plugin 'alfredodeza/pytest.vim'
-Plugin 'davidhalter/jedi-vim'
+
+" Javascript
+Plugin 'marijnh/tern_for_vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -118,4 +121,6 @@ let g:airline_powerline_fonts = 1
 " Searching
 set ignorecase
 
-
+" Python support with YCM
+let g:ycm_autoclose_preview_window_after_completion=1
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
