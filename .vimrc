@@ -19,6 +19,8 @@ Plugin 'edkolev/tmuxline.vim'
 
 " Editing
 Plugin 'tpope/vim-surround'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " Navigation
 Plugin 'christoomey/vim-tmux-navigator'
