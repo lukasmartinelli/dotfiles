@@ -61,6 +61,9 @@ set clipboard=unnamed
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
+" Autocorrection
+set spell spelllang=en_us
+
 " Enable mouse and backspace
 set mouse=a
 set bs=2
