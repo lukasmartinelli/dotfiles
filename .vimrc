@@ -11,6 +11,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'majutsushi/tagbar'
+" Plugin 'airblade/vim-gitgutter'
 
 " Visuals
 Plugin 'bling/vim-airline'
@@ -31,8 +33,18 @@ Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'nvie/vim-flake8'
 Plugin 'alfredodeza/pytest.vim'
 
+" Go
+Plugin 'fatih/vim-go'
+Plugin 'jstemmer/gotags'
+
 " Javascript
 Plugin 'marijnh/tern_for_vim'
+
+" Docker
+Plugin 'honza/dockerfile.vim'
+
+" Markdown
+Plugin 'tpope/vim-markdown'
 
 call vundle#end()
 filetype plugin indent on
@@ -75,7 +87,7 @@ nnoremap <C-h> <C-w><C-h>
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Ignore filetypes
-set wildignore+=*.pyc,*.swp,*.egg
+set wildignore+=*.pyc,*.swp,*.egg,node_modules,.git
 
 " Text
 set number
@@ -97,6 +109,9 @@ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " Gundo keybinding
 nnoremap <F5> :GundoToggle<CR>
+
+" Tagbar toggle
+nmap <F8> :TagbarToggle<CR>
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -122,6 +137,38 @@ let g:airline_powerline_fonts = 1
 
 " Searching
 set ignorecase
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<c-j>"
+
+" Go Tagbar
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
 
 " Python support with YCM
 let g:ycm_autoclose_preview_window_after_completion=1

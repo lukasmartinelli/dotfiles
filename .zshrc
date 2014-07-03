@@ -21,3 +21,4 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PYTHONPATH=/usr/lib/python3.4/site-packages
 export EDITOR='vim'
 export WORKON_HOME=$HOME/.virtualenvs
+export NODE_PATH="/usr/local/lib/node_modules"
