@@ -11,11 +11,9 @@ ln -sv $CWD/.vimrc $HOME
 #Zsh config
 ln -sv $CWD/.zshrc $HOME
 
-#Tmux config
-ln -sv $CWD/.tmux.conf $HOME
+#Setup xorg
+ln -sv $CWD/.xinitrc $HOME
+ln -sv $CWD/.Xresources $HOME
 
-#Expose guake config
-ln -sv $CWD/.guake $HOME
-
-#Guake theme
-./.guake/guake-colors-solarized/set_light.sh
+#Setup i3 tiling wm
+ln -sv $CWD/.i3 $HOME

@@ -1,4 +1,3 @@
-set term=xterm-256color
 set nocompatible
 
 " Vundle Plugins
@@ -17,7 +16,6 @@ Plugin 'majutsushi/tagbar'
 " Visuals
 Plugin 'bling/vim-airline'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'edkolev/tmuxline.vim'
 
 " Editing
 Plugin 'tpope/vim-surround'
@@ -50,10 +48,10 @@ call vundle#end()
 filetype plugin indent on
 
 " Appearance
-set background=light
+set background=dark
 set title
-syntax on
 colorscheme solarized
+syntax on
 
 " Normal copy behaviour
 set clipboard=unnamed
@@ -87,6 +85,7 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
 " Allow jumping to definitions in python
+let g:ycm_autoclose_preview_window_after_completion=1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Ignore filetypes
@@ -144,35 +143,3 @@ set ignorecase
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<c-j>"
 
-" Go Tagbar
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-    \ }
-
-" Python support with YCM
-let g:ycm_autoclose_preview_window_after_completion=1
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
