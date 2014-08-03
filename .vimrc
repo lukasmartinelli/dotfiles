@@ -32,8 +32,8 @@ Plugin 'nvie/vim-flake8'
 Plugin 'alfredodeza/pytest.vim'
 
 " Go
-Plugin 'fatih/vim-go'
-Plugin 'jstemmer/gotags'
+" Plugin 'fatih/vim-go'
+" Plugin 'jstemmer/gotags'
 
 " Javascript
 Plugin 'marijnh/tern_for_vim'

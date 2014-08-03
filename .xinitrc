@@ -11,9 +11,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-xrdb -merge ~/.Xresources
-
 # Use Capslock instead of Escape
-xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+setxkbmap -option caps:escape
+
+# Merge other X settings
+xrdb -merge ~/.Xresources
 
 exec i3

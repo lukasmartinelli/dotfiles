@@ -17,3 +17,5 @@ ln -sv $CWD/.Xresources $HOME
 
 #Setup i3 tiling wm
 ln -sv $CWD/.i3 $HOME
+mkdir -p $HOME/config/i3
+ln -sv $CWD/i3status.conf $HOME/config/i3status
