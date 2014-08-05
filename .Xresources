@@ -1,5 +1,5 @@
-xterm*faceName: DejaVu Sans Mono for Powerline
-xterm*faceSize: 12
+xterm*faceName: Droid Sans Mono for Powerline
+xterm*faceSize: 14
 xterm*SaveLines: 1000
 xterm*Border-Width: 0
 xterm*locale: true
