@@ -1,5 +1,5 @@
 xterm*faceName: Droid Sans Mono for Powerline
-xterm*faceSize: 14
+xterm*faceSize: 12
 xterm*SaveLines: 1000
 xterm*Border-Width: 0
 xterm*locale: true
