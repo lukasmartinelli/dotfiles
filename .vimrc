@@ -15,12 +15,12 @@ Plugin 'majutsushi/tagbar'
 
 " Visuals
 Plugin 'bling/vim-airline'
-Plugin 'flazz/vim-colorschemes'
+Plugin 'chriskempson/base16-vim'
 
 " Editing
 Plugin 'tpope/vim-surround'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
 
 " Navigation
 Plugin 'christoomey/vim-tmux-navigator'
@@ -32,8 +32,8 @@ Plugin 'nvie/vim-flake8'
 Plugin 'alfredodeza/pytest.vim'
 
 " Go
-" Plugin 'fatih/vim-go'
-" Plugin 'jstemmer/gotags'
+Plugin 'fatih/vim-go'
+"Plugin 'jstemmer/gotags'
 
 " Javascript
 Plugin 'marijnh/tern_for_vim'
@@ -48,9 +48,9 @@ call vundle#end()
 filetype plugin indent on
 
 " Appearance
-set background=dark
+let base16colorspace=256  " Access colors present in 256 colorspace
 set title
-colorscheme solarized
+colorscheme base16-default
 syntax on
 
 " Normal copy behaviour
@@ -86,6 +86,18 @@ nnoremap <C-h> <C-w><C-h>
 
 " Allow jumping to definitions in python
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_semantic_triggers =  {
+  \   'c' : ['->', '.'],
+  \   'objc' : ['->', '.'],
+  \   'cpp,objcpp' : ['->', '.', '::'],
+  \   'perl' : ['->'],
+  \   'php' : ['->', '::'],
+  \   'cs,java,javascript,d,vim,ruby,python,perl6,scala,vb,elixir,go' : ['.'],
+  \   'lua' : ['.', ':'],
+  \   'erlang' : [':'],
+  \ }
+
+
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Ignore filetypes
@@ -139,7 +151,3 @@ let g:airline_powerline_fonts = 1
 
 " Searching
 set ignorecase
-
-" Ultisnips
-let g:UltiSnipsExpandTrigger="<c-j>"
-
