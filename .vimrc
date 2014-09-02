@@ -25,6 +25,7 @@ Plugin 'tpope/vim-surround'
 " Navigation
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'mileszs/ack.vim'
 
 " Python
 Plugin 'jmcantrell/vim-virtualenv'
