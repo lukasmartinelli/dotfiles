@@ -16,6 +16,7 @@ Plugin 'majutsushi/tagbar'
 " Visuals
 Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
+" Plugin 'edkolev/tmuxline.vim'
 
 " Editing
 Plugin 'tpope/vim-surround'
@@ -52,6 +53,7 @@ filetype plugin indent on
 let base16colorspace=256  " Access colors present in 256 colorspace
 set title
 colorscheme base16-default
+set background=dark
 syntax on
 
 " Normal copy behaviour
