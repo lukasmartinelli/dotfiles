@@ -11,17 +11,15 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/syntastic'
 " Plugin 'airblade/vim-gitgutter'
 
 " Visuals
 Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
-" Plugin 'edkolev/tmuxline.vim'
 
 " Editing
 Plugin 'tpope/vim-surround'
-" Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
 
 " Navigation
 Plugin 'christoomey/vim-tmux-navigator'
@@ -118,7 +116,6 @@ if has("autocmd")
 endif
 
 " Indent
-set autoindent				" always set autoindenting on
 set smartindent				" use smart indent if there is no indent file
 
 " Default tab configuration
@@ -141,6 +138,10 @@ set autowriteall
 :match ExtraWhitespace /\s\+$/
 :match ExtraWhitespace /\s\+$\| \+\ze\t/
 
+" Don't move on linewise basis
+nmap j gj
+nmap k gk
+
 " Folding
 set foldmethod=indent
 set foldlevel=99
@@ -152,5 +153,23 @@ set hidden
 set laststatus=2
 let g:airline_powerline_fonts = 1
 
+" Better pasting
+set pastetoggle=<F10
+
+" Go back to last buffer
+nmap <C-e> :e#<CR>
+
 " Searching
+set incsearch
 set ignorecase
+set smartcase
+set hlsearch
+nmap \q :nohlsearch<CR>
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+
+" Get SASS omni completion to work
+autocmd BufNewFile,BufRead *.scss set ft=scss.css
