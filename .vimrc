@@ -10,8 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/syntastic'
+" Plugin 'majutsushi/tagbar'
 " Plugin 'airblade/vim-gitgutter'
 
 " Visuals
@@ -28,8 +27,8 @@ Plugin 'mileszs/ack.vim'
 
 " Python
 Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'nvie/vim-flake8'
-Plugin 'alfredodeza/pytest.vim'
+Plugin 'andviro/flake8-vim'
+" Plugin 'alfredodeza/pytest.vim'
 
 " Go
 Plugin 'fatih/vim-go'
@@ -173,3 +172,12 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 " Get SASS omni completion to work
 autocmd BufNewFile,BufRead *.scss set ft=scss.css
+
+" Highlight excess chars for Python
+augroup vimrc_autocmds
+augroup vimrc_autocmds
+    autocmd!
+    autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
+    autocmd FileType python match Excess /\%80v.*/
+    autocmd FileType python set nowrap
+    augroup END
