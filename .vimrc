@@ -26,8 +26,9 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'mileszs/ack.vim'
 
 " Python
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'andviro/flake8-vim'
+" Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'klen/python-mode'
+" Plugin 'andviro/flake8-vim'
 " Plugin 'alfredodeza/pytest.vim'
 
 " Go
@@ -35,7 +36,9 @@ Plugin 'fatih/vim-go'
 "Plugin 'jstemmer/gotags'
 
 " Javascript
-Plugin 'marijnh/tern_for_vim'
+" Plugin 'marijnh/tern_for_vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'kchmck/vim-coffee-script'
 
 " Docker
 Plugin 'honza/dockerfile.vim'
@@ -65,6 +68,9 @@ set spell spelllang=en_us
 " Enable mouse and backspace
 set mouse=a
 set bs=2
+
+" Disable Rope Completion in favor of YCM
+let g:pymode_rope_completion = 0
 
 " Enable standard short-cut keys
 map <C-a> GVgg				" select all
@@ -162,7 +168,7 @@ nmap <C-e> :e#<CR>
 set incsearch
 set ignorecase
 set smartcase
-set hlsearch
+"set hlsearch
 nmap \q :nohlsearch<CR>
 
 " Enable omni completion.
