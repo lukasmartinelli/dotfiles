@@ -21,4 +21,4 @@ export PYTHONPATH=/usr/lib/python3.4/site-packages
 export NODE_PATH="/usr/local/lib/node_modules"
 export GOPATH=$HOME/Projects/go
 export WORKON_HOME=$HOME/.virtualenvs
-export PATH=$HOME/bin:/usr/local/bin:$GOPATH/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$GOPATH/bin:$HOME/.gem/ruby/2.1.0/bin:$PATH
