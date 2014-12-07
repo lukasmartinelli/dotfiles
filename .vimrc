@@ -43,6 +43,9 @@ Plugin 'kchmck/vim-coffee-script'
 " Docker
 Plugin 'honza/dockerfile.vim'
 
+" Haxe
+Plugin 'jdonaldson/vaxe'
+
 " Markdown
 Plugin 'tpope/vim-markdown'
 
