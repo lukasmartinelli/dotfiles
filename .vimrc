@@ -49,6 +49,9 @@ Plugin 'jdonaldson/vaxe'
 " Markdown
 Plugin 'tpope/vim-markdown'
 
+" Groovy
+Plugin 'tfnico/vim-gradle'
+
 call vundle#end()
 filetype plugin indent on
 
