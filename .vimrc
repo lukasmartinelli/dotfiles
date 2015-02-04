@@ -28,15 +28,18 @@ Plugin 'mileszs/ack.vim'
 " Python
 " Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'klen/python-mode'
+Plugin 'tell-k/vim-autopep8'
 " Plugin 'andviro/flake8-vim'
-" Plugin 'alfredodeza/pytest.vim'
+Plugin 'alfredodeza/pytest.vim'
 
 " Go
 Plugin 'fatih/vim-go'
 "Plugin 'jstemmer/gotags'
 
 " Javascript
-" Plugin 'marijnh/tern_for_vim'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'kchmck/vim-coffee-script'
 
@@ -52,6 +55,9 @@ Plugin 'tpope/vim-markdown'
 " Groovy
 Plugin 'tfnico/vim-gradle'
 
+" C++
+Plugin 'rhysd/vim-clang-format'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -61,6 +67,10 @@ set title
 colorscheme base16-default
 set background=dark
 syntax on
+
+" Sound
+set visualbell
+set t_vb=
 
 " Normal copy behaviour
 set clipboard=unnamed
@@ -77,6 +87,9 @@ set bs=2
 
 " Disable Rope Completion in favor of YCM
 let g:pymode_rope_completion = 0
+
+" Rope Refactoring
+let g:pymode_rope_rename_bind = '<C-c>rr'
 
 " Enable standard short-cut keys
 map <C-a> GVgg				" select all
@@ -181,6 +194,14 @@ nmap \q :nohlsearch<CR>
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+
+" Autosaving when focus lost
+:au FocusLost * :wa
+
+" Good old ctrl+s for saving
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
 
 " Get SASS omni completion to work
 autocmd BufNewFile,BufRead *.scss set ft=scss.css
