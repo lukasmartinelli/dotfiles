@@ -45,6 +45,8 @@ Plugin 'kchmck/vim-coffee-script'
 
 " Docker
 Plugin 'honza/dockerfile.vim'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'cespare/vim-toml'
 
 " Haxe
 Plugin 'jdonaldson/vaxe'
@@ -54,6 +56,9 @@ Plugin 'tpope/vim-markdown'
 
 " Groovy
 Plugin 'tfnico/vim-gradle'
+
+" Scala
+Plugin 'derekwyatt/vim-scala'
 
 " C++
 Plugin 'rhysd/vim-clang-format'
@@ -86,10 +91,10 @@ set mouse=a
 set bs=2
 
 " Disable Rope Completion in favor of YCM
-let g:pymode_rope_completion = 0
+"let g:pymode_rope_completion = 0
 
 " Rope Refactoring
-let g:pymode_rope_rename_bind = '<C-c>rr'
+"let g:pymode_rope_rename_bind = '<C-c>rr'
 
 " Enable standard short-cut keys
 map <C-a> GVgg				" select all
