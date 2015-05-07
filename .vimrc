@@ -19,6 +19,7 @@ Plugin 'chriskempson/base16-vim'
 
 " Editing
 Plugin 'tpope/vim-surround'
+Plugin 'editorconfig/editorconfig-vim'
 
 " Navigation
 Plugin 'christoomey/vim-tmux-navigator'
@@ -131,7 +132,7 @@ let g:ycm_semantic_triggers =  {
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Ignore filetypes
-set wildignore+=*.pyc,*.swp,*.egg,node_modules,.git
+set wildignore+=*.pyc,*.swp,*.egg,node_modules,.git,bower_components
 
 " Text
 set number
@@ -149,6 +150,8 @@ set smartindent				" use smart indent if there is no indent file
 
 " Default tab configuration
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType html :setlocal sw=2 ts=2 sts=2 " Two spaces for HTML files "
+autocmd FileType yml :setlocal sw=2 ts=2 sts=2 " Two spaces for HTML files "
 
 " Gundo keybinding
 nnoremap <F5> :GundoToggle<CR>

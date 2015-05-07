@@ -21,6 +21,7 @@ BASE16_SHELL="/usr/share/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 
 ### Alias ###
 alias tree='tree -I "*.pyc|__pycache__|node_modules"'
+alias lsla='ls -l --block-size=M'
 
 ### Environment ###
 export TERM='xterm-256color'
