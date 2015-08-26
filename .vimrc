@@ -10,12 +10,14 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'majutsushi/tagbar'
 " Plugin 'airblade/vim-gitgutter'
 
 " Visuals
 Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
+Plugin 'edkolev/tmuxline.vim'
 
 " Editing
 Plugin 'tpope/vim-surround'
@@ -28,10 +30,8 @@ Plugin 'mileszs/ack.vim'
 
 " Python
 " Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'klen/python-mode'
-Plugin 'tell-k/vim-autopep8'
-" Plugin 'andviro/flake8-vim'
-Plugin 'alfredodeza/pytest.vim'
+" Plugin 'klen/python-mode'
+" Plugin 'alfredodeza/pytest.vim'
 
 " Go
 Plugin 'fatih/vim-go'
@@ -43,6 +43,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " Docker
 Plugin 'honza/dockerfile.vim'
@@ -92,7 +93,8 @@ set mouse=a
 set bs=2
 
 " Disable Rope Completion in favor of YCM
-"let g:pymode_rope_completion = 0
+"let g:pymode_rope_lookup_project = 0
+" let g:pymode_rope_completion = 0
 
 " Rope Refactoring
 "let g:pymode_rope_rename_bind = '<C-c>rr'
@@ -205,6 +207,9 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 " Autosaving when focus lost
 :au FocusLost * :wa
+
+" Golang autoimport
+let g:go_fmt_command = "goimports"
 
 " Good old ctrl+s for saving
 noremap <silent> <C-S>          :update<CR>

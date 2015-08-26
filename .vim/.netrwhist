@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/morgenkaffee/Projects/lukasmartinelli/py14/py14'
+let g:netrw_dirhist_2='/home/morgenkaffee/Projects/lukasmartinelli/yturl'
+let g:netrw_dirhist_3='/home/morgenkaffee/Projects/lukasmartinelli/opencodereview/opencodereview'
+let g:netrw_dirhist_4='/home/morgenkaffee/Projects/lukasmartinelli/delptr'
+let g:netrw_dirhist_5='/home/morgenkaffee/Projects/go/src/github.com/lukasmartinelli/redis-pipe'
+let g:netrw_dirhist_6='/home/morgenkaffee/Projects/go/src/github.com/lukasmartinelli/pgfutter/.git'
+let g:netrw_dirhist_7='/home/morgenkaffee/Projects/dreipol/dreiup'

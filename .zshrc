@@ -22,6 +22,11 @@ BASE16_SHELL="/usr/share/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 ### Alias ###
 alias tree='tree -I "*.pyc|__pycache__|node_modules"'
 alias lsla='ls -l --block-size=M'
+alias lsu='fleetctl list-units'
+alias lsm='fleetctl list-machines'
+alias lsuf='fleetctl list-unit-files'
+alias jouf='fleetctl journal --follow'
+alias goi='go install'
 
 ### Environment ###
 export TERM='xterm-256color'
