@@ -1,6 +1,6 @@
 set nocompatible
 
-" Vundle Plugins
+" --------- VUNDLE PLUGINS ---------
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -11,11 +11,13 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/syntastic'
 " Plugin 'majutsushi/tagbar'
 " Plugin 'airblade/vim-gitgutter'
 
 " Visuals
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'chriskempson/base16-vim'
 Plugin 'edkolev/tmuxline.vim'
 
@@ -50,6 +52,17 @@ Plugin 'honza/dockerfile.vim'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'cespare/vim-toml'
 
+" Haskell
+Plugin 'Shougo/vimproc.vim'
+Plugin 'itchyny/vim-haskell-indent'
+Plugin 'bitc/vim-hdevtools'
+
+" Is ghcmod even required with hdevtools
+"Plugin 'eagletmt/ghcmod-vim'
+"
+Plugin 'eagletmt/neco-ghc'
+Plugin 'Twinside/vim-hoogle'
+
 " Haxe
 Plugin 'jdonaldson/vaxe'
 
@@ -68,19 +81,27 @@ Plugin 'rhysd/vim-clang-format'
 call vundle#end()
 filetype plugin indent on
 
-" Appearance
+" --------- APPEARANCE ---------
 let base16colorspace=256  " Access colors present in 256 colorspace
 set title
 colorscheme base16-default
 set background=dark
 syntax on
 
+" Status line
+set laststatus=2
+let g:airline_theme='base16'
+let g:airline_powerline_fonts = 0
+
+" Syntastic needs to be integrated into airline
+let g:airline#extensions#syntastic#enabled = 1
+
+
 " Sound
 set visualbell
 set t_vb=
 
-" Normal copy behaviour
-set clipboard=unnamed
+" --------- SENSIBLE DEFAULTS ---------
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
@@ -91,47 +112,6 @@ set spell spelllang=en_us
 " Enable mouse and backspace
 set mouse=a
 set bs=2
-
-" Disable Rope Completion in favor of YCM
-"let g:pymode_rope_lookup_project = 0
-" let g:pymode_rope_completion = 0
-
-" Rope Refactoring
-"let g:pymode_rope_rename_bind = '<C-c>rr'
-
-" Enable standard short-cut keys
-map <C-a> GVgg				" select all
-map <C-n> :enew				" open new tab
-map <C-t> :tabnew <Enter>
-
-" Easymotion 2-character search notion
-nmap s <Plug>(easymotion-s2)
-
-" Easymotion better coloring of cursor
-hi link EasyMotionTarget ErrorMsg
-hi link EasyMotionShade  Comment
-
-" Easier split navigation
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
-nnoremap <C-h> <C-w><C-h>
-
-" Allow jumping to definitions in python
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_semantic_triggers =  {
-  \   'c' : ['->', '.'],
-  \   'objc' : ['->', '.'],
-  \   'cpp,objcpp' : ['->', '.', '::'],
-  \   'perl' : ['->'],
-  \   'php' : ['->', '::'],
-  \   'cs,java,javascript,d,vim,ruby,python,perl6,scala,vb,elixir,go' : ['.'],
-  \   'lua' : ['.', ':'],
-  \   'erlang' : [':'],
-  \ }
-
-
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Ignore filetypes
 set wildignore+=*.pyc,*.swp,*.egg,node_modules,.git,bower_components
@@ -155,12 +135,6 @@ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType html :setlocal sw=2 ts=2 sts=2 " Two spaces for HTML files "
 autocmd FileType yml :setlocal sw=2 ts=2 sts=2 " Two spaces for HTML files "
 
-" Gundo keybinding
-nnoremap <F5> :GundoToggle<CR>
-
-" Tagbar toggle
-nmap <F8> :TagbarToggle<CR>
-
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -183,16 +157,43 @@ set foldlevel=99
 " Keep buffers hidden instead of closing them
 set hidden
 
-" Status line
-set laststatus=2
-let g:airline_powerline_fonts = 1
+" Autosaving when focus lost
+:au FocusLost * :wa
 
-" Better pasting
-set pastetoggle=<F10
+" --------- NAVIGATION ---------
+
+" Easymotion 2-character search notion
+nmap s <Plug>(easymotion-s2)
+
+" Easymotion better coloring of cursor
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment
+
+" Easier split navigation
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
+
+" --------- GLOBAL MAPPINGS  ---------
+" Good old ctrl+s for saving
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
 
 " Go back to last buffer
 nmap <C-e> :e#<CR>
 
+" Gundo keybinding
+nnoremap <F5> :GundoToggle<CR>
+
+" Tagbar toggle
+nmap <F8> :TagbarToggle<CR>
+
+" Jump to definitions with YCM
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" --------- SEARCHING ---------
 " Searching
 set incsearch
 set ignorecase
@@ -200,25 +201,54 @@ set smartcase
 "set hlsearch
 nmap \q :nohlsearch<CR>
 
+
+" --------- COMPLETION ---------
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
-" Autosaving when focus lost
-:au FocusLost * :wa
+" Disable haskell-vim omnifunc
+let g:haskellmode_completion_ghc = 0
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
+" Trigger YCM completion for languages
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_semantic_triggers =  {
+  \   'c' : ['->', '.'],
+  \   'objc' : ['->', '.'],
+  \   'cpp,objcpp' : ['->', '.', '::'],
+  \   'perl' : ['->'],
+  \   'php' : ['->', '::'],
+  \   'haskell,cs,java,javascript,d,vim,ruby,python,perl6,scala,vb,elixir,go' : ['.'],
+  \   'lua' : ['.', ':'],
+  \   'erlang' : [':'],
+  \ }
+
+" --------- LINTING ---------
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" --------- GOLANG ---------
 " Golang autoimport
 let g:go_fmt_command = "goimports"
 
-" Good old ctrl+s for saving
-noremap <silent> <C-S>          :update<CR>
-vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
+" --------- HASKELL  ---------
+" Show Haskell types under cursor
+au FileType haskell nnoremap <buffer> <C-T> :HdevtoolsType<CR>
 
+" --------- SASS ---------
 " Get SASS omni completion to work
 autocmd BufNewFile,BufRead *.scss set ft=scss.css
 
+" --------- PYTHON ---------
 " Highlight excess chars for Python
 augroup vimrc_autocmds
 augroup vimrc_autocmds
