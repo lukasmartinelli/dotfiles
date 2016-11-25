@@ -30,6 +30,10 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'mileszs/ack.vim'
 
+" Snippets
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
+
 " Python
 " Plugin 'jmcantrell/vim-virtualenv'
 " Plugin 'klen/python-mode'
@@ -40,12 +44,12 @@ Plugin 'fatih/vim-go'
 "Plugin 'jstemmer/gotags'
 
 " Javascript
-Plugin 'marijnh/tern_for_vim'
+" Plugin 'marijnh/tern_for_vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'mustache/vim-mustache-handlebars'
+" Plugin 'kchmck/vim-coffee-script'
+" Plugin 'mustache/vim-mustache-handlebars'
 
 " Docker
 Plugin 'honza/dockerfile.vim'
@@ -56,12 +60,11 @@ Plugin 'cespare/vim-toml'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'itchyny/vim-haskell-indent'
 Plugin 'bitc/vim-hdevtools'
-
-" Is ghcmod even required with hdevtools
-"Plugin 'eagletmt/ghcmod-vim'
-"
 Plugin 'eagletmt/neco-ghc'
 Plugin 'Twinside/vim-hoogle'
+
+" Is ghcmod even required with hdevtools?
+"Plugin 'eagletmt/ghcmod-vim'
 
 " Haxe
 Plugin 'jdonaldson/vaxe'
@@ -84,13 +87,11 @@ filetype plugin indent on
 " --------- APPEARANCE ---------
 let base16colorspace=256  " Access colors present in 256 colorspace
 set title
-colorscheme base16-default
-set background=dark
+
 syntax on
 
 " Status line
 set laststatus=2
-let g:airline_theme='base16'
 let g:airline_powerline_fonts = 0
 
 " Syntastic needs to be integrated into airline
@@ -100,6 +101,15 @@ let g:airline#extensions#syntastic#enabled = 1
 " Sound
 set visualbell
 set t_vb=
+
+" ------------ COLOR THEMES -----------
+" Presentations
+" let g:airline_theme='xtermlight'
+
+" Work
+colorscheme base16-default-dark
+set background=dark
+let g:airline_theme='base16'
 
 " --------- SENSIBLE DEFAULTS ---------
 
@@ -201,7 +211,6 @@ set smartcase
 "set hlsearch
 nmap \q :nohlsearch<CR>
 
-
 " --------- COMPLETION ---------
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -213,6 +222,8 @@ let g:haskellmode_completion_ghc = 0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 " Trigger YCM completion for languages
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_semantic_triggers =  {
   \   'c' : ['->', '.'],
@@ -236,9 +247,13 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" --------- JAVASCRIPT --------
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+
 " --------- GOLANG ---------
 " Golang autoimport
 let g:go_fmt_command = "goimports"
+" autocmd BufWritePre *.go :GoBuild
 
 " --------- HASKELL  ---------
 " Show Haskell types under cursor
