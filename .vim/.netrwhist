@@ -1,3 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/Users/lukasmartinelli/Projects/devicetools/deployment/roles/flannel/tasks'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/lukasmartinelli/Documents/mapbox/streets-layergun/cloudformation'
+let g:netrw_dirhist_2='/Users/lukasmartinelli/Documents/mapbox/tileturtle/public'
+let g:netrw_dirhist_3='/Users/lukasmartinelli/Documents/mapbox/api-profanity/profanity/app'
+let g:netrw_dirhist_4='/Users/lukasmartinelli/Documents/mapbox/streets-review'
+let g:netrw_dirhist_5='/Users/lukasmartinelli/Documents/mapbox'

@@ -11,7 +11,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 " Plugin 'majutsushi/tagbar'
 " Plugin 'airblade/vim-gitgutter'
 
@@ -85,7 +85,6 @@ call vundle#end()
 filetype plugin indent on
 
 " --------- APPEARANCE ---------
-let base16colorspace=256  " Access colors present in 256 colorspace
 set title
 
 syntax on
@@ -107,8 +106,11 @@ set t_vb=
 " let g:airline_theme='xtermlight'
 
 " Work
-colorscheme base16-default-dark
 set background=dark
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256  " Access colors present in 256 colorspace
+  source ~/.vimrc_background
+endif
 let g:airline_theme='base16'
 
 " --------- SENSIBLE DEFAULTS ---------
@@ -245,7 +247,9 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = './node_modules/eslint/bin/eslint.js'
 
 " --------- JAVASCRIPT --------
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2
