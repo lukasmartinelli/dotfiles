@@ -36,9 +36,9 @@ export PYTHONPATH=/usr/lib/python3.4/site-packages
 export NODE_PATH="/usr/local/lib/node_modules"
 export GOPATH=$HOME/Projects/go
 export WORKON_HOME=$HOME/.virtualenvs
-export PATH=$HOME/bin:/usr/local/bin:$GOPATH/bin:$HOME/.gem/ruby/2.4.0/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$GOPATH/bin:$HOME/.gem/ruby/2.3.0/bin:$PATH
 source $(brew --prefix nvm)/nvm.sh
-source "$(npm root -g)/mbxcli/mapbox.sh"
+source "$(npm root -g)/@mapbox/mbxcli/bin/mapbox.sh"
 
 # added by travis gem
 [ -f /Users/lukasmartinelli/.travis/travis.sh ] && source /Users/lukasmartinelli/.travis/travis.sh
