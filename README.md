@@ -6,6 +6,8 @@ I use my dotfiles with Linux or OSX.
 The configuration files assume the installation of
 - base16-shell
 - oh-my-zsh
+- nvm
+- virtualenv and virtualenvwrapper
 
 ## Setup
 	git clone --recursive git@github.com:lukasmartinelli/dotfiles.git ~/.dotfiles
